@@ -19,6 +19,10 @@ function handle_click(){
         .then(response => response.json())
         .then(data => {deckId=data.deck_id
             document.getElementById('remaining').innerText= data.remaining;
+            document.getElementById('myscore').innerText=0;
+            document.getElementById('computerscore').innerText=0;
+
+            
         
         })
 
@@ -71,6 +75,8 @@ draw.addEventListener('click',()=>{
         }
 
         if(data.remaining==0){
+            playerOneScore=0;
+            playerTwoScore=0;
             document.getElementById('draw-btn').disabled = true;
 
             if(playerOneScore>playerTwoScore){
